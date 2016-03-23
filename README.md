@@ -29,3 +29,9 @@ The output with _docker-compose in docker_ is :
     want-config-container | /config-relative
 
 So, how can I get my _shared-config_ folder mounted into my _want-config-container_ ?
+
+## Note
+
+ I have try to make a container dedicated to hold my config.
+
+ I run it with my local config folder as a volume, then make my _docker-compose_ containers linked to it. But it's impossible as I can't use `volumes_from` against a `external_links` container.
