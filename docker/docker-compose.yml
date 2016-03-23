@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  want-config-service:
+    image: alpine
+    container_name: want-config-container
+    command: sh -c "find /config*; tail -f /dev/null"
+    volumes:
+      - ../shared-config:/config-relative
+      - /compose/shared-config:/config-absolute
