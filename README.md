@@ -35,3 +35,16 @@ So, how can I get my _shared-config_ folder mounted into my _want-config-contain
  I have try to make a container dedicated to hold my config.
 
  I run it with my local config folder as a volume, then make my _docker-compose_ containers linked to it. But it's impossible as I can't use `volumes_from` against a `external_links` container.
+
+## Solution
+
+Make the `volumes` using an absolute path from the host:
+
+    $ ./runDockerComposeInDockerWithAbsolutePath.sh
+    Recreating want-config-container
+    Attaching to want-config-container
+    want-config-container | /config-absolute-from-host
+    want-config-container | /config-absolute-from-host/two
+    want-config-container | /config-absolute-from-host/two/file
+    want-config-container | /config-absolute-from-host/one
+    want-config-container | /config-absolute-from-host/one/file
